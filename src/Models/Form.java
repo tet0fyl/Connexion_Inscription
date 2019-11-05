@@ -3,6 +3,7 @@ package Models;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.util.Hashtable;
@@ -12,6 +13,7 @@ public class Form {
 
     private Hashtable<Integer,TextField> listOfTextField;
     private Button btnValidation;
+    private Label errorMsgArea;
 
     public Form(Hashtable<Integer, TextField> listOfTextField, Button btnValidation) {
         this.listOfTextField = listOfTextField;
@@ -45,6 +47,10 @@ public class Form {
                 }
             });
         });
+    }
+
+    public void setErrorMsgArea(Label errorMsgArea){
+        this.errorMsgArea = errorMsgArea;
     }
 
     public Button getBtnValidation() {

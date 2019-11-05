@@ -31,28 +31,28 @@ public class ViewInformation {
 
         titleInformation = NodeIniter.initTitle(Paths.titleInformation);
 
-        lblLogin = NodeIniter.initLabel("Login :");
+        lblLogin = NodeIniter.initLabel(Paths.lblLogin);
         fieldLogin = NodeIniter.initText(user.getLogin());
 
-        lblNom = NodeIniter.initLabel("Nom :");
+        lblNom = NodeIniter.initLabel(Paths.lblNom);
         fieldNom = NodeIniter.initText(user.getNom());
 
-        lblPrenom = NodeIniter.initLabel("Prenom :");
+        lblPrenom = NodeIniter.initLabel(Paths.lblPrenom);
         fieldPrenom = NodeIniter.initText(user.getPrenom());
 
-        lblAdresse = NodeIniter.initLabel("Adresse :");
+        lblAdresse = NodeIniter.initLabel(Paths.lblAdresse);
         fieldAdresse = NodeIniter.initText(user.getAdresse());
 
-        lblCodePostal = NodeIniter.initLabel("Code Postal :");
+        lblCodePostal = NodeIniter.initLabel(Paths.lblCodeVille);
         fieldCodePostal = NodeIniter.initText(user.getCodeVille());
 
-        lblVille = NodeIniter.initLabel("Ville :");
+        lblVille = NodeIniter.initLabel(Paths.lblVille);
         fieldVille = NodeIniter.initText(user.getVille());
 
-        lblEmail = NodeIniter.initLabel("E-Mail :");
+        lblEmail = NodeIniter.initLabel(Paths.lblEMail);
         fieldEmail = NodeIniter.initText(user.getAdresse());
 
-        btnRetour = NodeIniter.initButton("RETOUR");
+        btnRetour = NodeIniter.initButton(Paths.btnRetour);
 
         initVBox();
 

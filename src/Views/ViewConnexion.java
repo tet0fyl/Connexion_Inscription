@@ -19,7 +19,7 @@ public class ViewConnexion {
     private VBox titleConnexion;
     private TextField fieldLogin;
     private PasswordField fieldMdp;
-    private Label lblLogin, lblMdp;
+    private Label lblLogin, lblMdp, errorMsgArea;
     private VBox vBoxMainContainer;
     private Button btnValider, btnRetour;
     private Hashtable<Integer,TextField> listTextFiled = new Hashtable<Integer,TextField>();
@@ -37,18 +37,22 @@ public class ViewConnexion {
 
         titleConnexion = NodeIniter.initTitle(Paths.titleConnexion);
 
-        lblLogin = NodeIniter.initLabel("Login :");
+        lblLogin = NodeIniter.initLabel(Paths.lblLogin);
         fieldLogin = NodeIniter.initTextField();
         listTextFiled.put(User.KEY_LOGIN, fieldLogin);
 
 
-        lblMdp = NodeIniter.initLabel("Mot de passe :");
+        lblMdp = NodeIniter.initLabel(Paths.lblMdp);
         fieldMdp = NodeIniter.initPasswordField();
         listTextFiled.put(User.KEY_LOGIN, fieldMdp);
 
 
-        btnValider = NodeIniter.initButton("Connexion");
-        btnRetour = NodeIniter.initButton("Retour");
+        btnValider = NodeIniter.initButton(Paths.btnValidationConnexion);
+        btnValider.setDisable(true);
+
+        btnRetour = NodeIniter.initButton(Paths.btnRetour);
+
+        errorMsgArea = NodeIniter.initLabel("");
 
         addToVBox();
 
@@ -59,6 +63,7 @@ public class ViewConnexion {
         vBoxMainContainer.getChildren().add(titleConnexion);
         vBoxMainContainer.getChildren().add(NodeIniter.initLabelAndFieldHBox(lblLogin,fieldLogin));
         vBoxMainContainer.getChildren().add(NodeIniter.initLabelAndFieldHBox(lblMdp,fieldMdp));
+        vBoxMainContainer.getChildren().add(errorMsgArea);
         vBoxMainContainer.getChildren().add(btnValider);
         vBoxMainContainer.getChildren().add(btnRetour);
     }

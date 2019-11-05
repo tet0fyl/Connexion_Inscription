@@ -35,6 +35,8 @@ public class ViewHandler extends Application {
 
         scene.getStylesheets().add(Paths.urlCss);
         primaryStage.setScene(scene);
+        primaryStage.setTitle("Formulaire d'Inscription");
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 

@@ -35,42 +35,42 @@ public class ViewInscription {
 
         titleFormulaire = NodeIniter.initTitle(Paths.titleInscription);
 
-        lblLogin = NodeIniter.initLabel("Login :");
+        lblLogin = NodeIniter.initLabel(Paths.lblLogin);
         fieldLogin = NodeIniter.initTextField();
         listTextFiled.put(User.KEY_LOGIN, fieldLogin);
 
-        lblMotDePasse = NodeIniter.initLabel("Mot de passe :");
+        lblMotDePasse = NodeIniter.initLabel(Paths.lblMdp);
         fieldMotDePasse = NodeIniter.initPasswordField();
         listTextFiled.put(User.KEY_MDP, fieldMotDePasse);
 
-        lblNom = NodeIniter.initLabel("Nom :");
+        lblNom = NodeIniter.initLabel(Paths.lblNom);
         fieldNom = NodeIniter.initTextField();
         listTextFiled.put(User.KEY_NOM, fieldNom);
 
-        lblPrenom = NodeIniter.initLabel("Prenom :");
+        lblPrenom = NodeIniter.initLabel(Paths.lblPrenom);
         fieldPrenom = NodeIniter.initTextField();
         listTextFiled.put(User.KEY_PRENOM, fieldPrenom);
 
-        lblAdresse = NodeIniter.initLabel("Adresse :");
+        lblAdresse = NodeIniter.initLabel(Paths.lblAdresse);
         fieldAdresse = NodeIniter.initTextField();
         listTextFiled.put(User.KEY_ADRESSE, fieldAdresse);
 
-        lblCodePostal = NodeIniter.initLabel("Code Postal :");
+        lblCodePostal = NodeIniter.initLabel(Paths.lblCodeVille);
         fieldCodePostal = NodeIniter.initTextField();
         listTextFiled.put(User.KEY_CODE_VILLE, fieldCodePostal);
 
-        lblVille = NodeIniter.initLabel("Ville :");
+        lblVille = NodeIniter.initLabel(Paths.lblVille);
         fieldVille = NodeIniter.initTextField();
         listTextFiled.put(User.KEY_VILLE, fieldVille);
 
-        lblEmail = NodeIniter.initLabel("E-Mail :");
+        lblEmail = NodeIniter.initLabel(Paths.lblEMail);
         fieldEmail = NodeIniter.initTextField();
         listTextFiled.put(User.KEY_EMAIL, fieldEmail);
 
-        btnValider = NodeIniter.initButton("Valider");
+        btnValider = NodeIniter.initButton(Paths.titleInscription);
         btnValider.setDisable(true);
 
-        btnExit = NodeIniter.initButton("Valider");
+        btnExit = NodeIniter.initButton(Paths.btnExit);
 
 
         addToVBox();
@@ -89,6 +89,8 @@ public class ViewInscription {
         vBoxMainContainer.getChildren().add(NodeIniter.initLabelAndFieldHBox(lblVille,fieldVille));
         vBoxMainContainer.getChildren().add(NodeIniter.initLabelAndFieldHBox(lblEmail,fieldEmail));
         vBoxMainContainer.getChildren().add(btnValider);
+        vBoxMainContainer.getChildren().add(btnExit);
+
     }
 
     void clearAndInitRoot(){
