@@ -16,11 +16,13 @@ public class ViewHandler extends Application {
     private ModelUser modelUser;
     private ControllerInscription controllerInscription;
 
+    public static final double squareSizeScene = 700;
+
     @Override
     public void start(Stage stage) throws Exception {
         this.primaryStage=stage;
         root=new Group();
-        scene=new Scene(root,600,600);
+        scene=new Scene(root,squareSizeScene,squareSizeScene);
 
         launchViewInscription();
 

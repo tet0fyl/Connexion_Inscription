@@ -16,6 +16,10 @@ public class ControllerInscription implements EventHandler<MouseEvent> {
         this.launcher.setEventHandlerInscription(this);
     }
 
+
+
+
+
     @Override
     public void handle(MouseEvent mouseEvent) {
 
