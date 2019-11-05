@@ -13,12 +13,15 @@ import javafx.scene.text.Text;
 
 import java.lang.reflect.Field;
 import java.nio.file.attribute.PosixFileAttributes;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ViewInscription {
     private Group root;
     private Text titleFormulaire;
-    private Label lblNom,lblPrenom,lblAdresse, lblCodePostal,lblVille,lblEmail;
-    private TextField fieldNom,fieldPrenom, fieldAdresse,fieldCodePostal, fieldVille, fieldEmail;
+    private Label lblLogin, lblMotDePasse, lblNom,lblPrenom,lblAdresse, lblCodePostal,lblVille,lblEmail;
+    private TextField fieldLogin, fieldMotDePasse, fieldNom,fieldPrenom, fieldAdresse,fieldCodePostal, fieldVille, fieldEmail;
+    private ArrayList<TextField> listTextFiled = new ArrayList<TextField>();
     private Button btnValider;
     private VBox vBoxMainContainer;
 
@@ -36,6 +39,12 @@ public class ViewInscription {
         vBoxMainContainer=new VBox();
 
         titleFormulaire = initTitle("Inscription");
+
+        lblLogin = initLabel("Login :");
+        fieldLogin = initTextField();
+
+        lblMotDePasse = initLabel("Mot de passe :");
+        fieldMotDePasse = initTextField();
 
         lblNom = initLabel("Nom :");
         fieldNom = initTextField();
@@ -93,6 +102,7 @@ public class ViewInscription {
         HBox hbox = new HBox();
         hbox.getChildren().add(label);
         hbox.getChildren().add(field);
+        listTextFiled.add(field);
         hbox.setAlignment(Pos.CENTER);
         hbox.setMinWidth(ViewHandler.squareSizeScene);
         return hbox;
@@ -102,6 +112,8 @@ public class ViewInscription {
         vBoxMainContainer.setMinWidth(ViewHandler.squareSizeScene);
         vBoxMainContainer.setAlignment(Pos.CENTER);
         vBoxMainContainer.getChildren().add(titleFormulaire);
+        vBoxMainContainer.getChildren().add(initLabelAndField(lblLogin,fieldLogin));
+        vBoxMainContainer.getChildren().add(initLabelAndField(lblMotDePasse,fieldMotDePasse));
         vBoxMainContainer.getChildren().add(initLabelAndField(lblNom,fieldNom));
         vBoxMainContainer.getChildren().add(initLabelAndField(lblPrenom,fieldPrenom));
         vBoxMainContainer.getChildren().add(initLabelAndField(lblAdresse,fieldAdresse));
@@ -109,7 +121,6 @@ public class ViewInscription {
         vBoxMainContainer.getChildren().add(initLabelAndField(lblVille,fieldVille));
         vBoxMainContainer.getChildren().add(initLabelAndField(lblEmail,fieldEmail));
         vBoxMainContainer.getChildren().add(btnValider);
-
     }
 
     void clearAndInitRoot(){
@@ -118,6 +129,9 @@ public class ViewInscription {
     }
 
     void setEvents(ControllerInscription controllerInscription){
+        btnValider.setOnMouseClicked(controllerInscription);
+
+
 
     }
 
