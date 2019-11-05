@@ -1,17 +1,17 @@
 package Controllers;
 
-import Models.ModelUser;
+import Models.User;
 import Views.ViewHandler;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
 public class ControllerInformation implements EventHandler<MouseEvent> {
     private ViewHandler launcher;
-    private ModelUser modelUser;
+    private User user;
 
-    public ControllerInformation(ViewHandler launcher, ModelUser modelUser){
+    public ControllerInformation(ViewHandler launcher, User user){
         this.launcher=launcher;
-        this.modelUser=modelUser;
+        this.user = user;
 
         this.launcher.setEventHandlerInformation(this);
     }

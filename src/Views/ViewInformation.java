@@ -1,14 +1,13 @@
 package Views;
 
 import Controllers.ControllerInformation;
-import Models.ModelUser;
+import Models.User;
 import Tools.NodeIniter;
 import Tools.Paths;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 
 
 public class ViewInformation {
@@ -17,11 +16,11 @@ public class ViewInformation {
     private Label lblLogin, lblNom,lblPrenom,lblAdresse, lblCodePostal,lblVille,lblEmail, fieldLogin, fieldNom,fieldPrenom, fieldAdresse,fieldCodePostal, fieldVille, fieldEmail;;
     private Button btnRetour;
     private VBox vBoxMainContainer;
-    private ModelUser modelUser;
+    private User user;
 
-    ViewInformation(Group root, ModelUser modelUser){
+    ViewInformation(Group root, User user){
         this.root=root;
-        this.modelUser=modelUser;
+        this.user = user;
 
         initElementOfTheView();
 
@@ -33,25 +32,25 @@ public class ViewInformation {
         titleInformation = NodeIniter.initTitle(Paths.titleInformation);
 
         lblLogin = NodeIniter.initLabel("Login :");
-        fieldLogin = NodeIniter.initText(modelUser.getLogin());
+        fieldLogin = NodeIniter.initText(user.getLogin());
 
         lblNom = NodeIniter.initLabel("Nom :");
-        fieldNom = NodeIniter.initText(modelUser.getNom());
+        fieldNom = NodeIniter.initText(user.getNom());
 
         lblPrenom = NodeIniter.initLabel("Prenom :");
-        fieldPrenom = NodeIniter.initText(modelUser.getPrenom());
+        fieldPrenom = NodeIniter.initText(user.getPrenom());
 
         lblAdresse = NodeIniter.initLabel("Adresse :");
-        fieldAdresse = NodeIniter.initText(modelUser.getAdresse());
+        fieldAdresse = NodeIniter.initText(user.getAdresse());
 
         lblCodePostal = NodeIniter.initLabel("Code Postal :");
-        fieldCodePostal = NodeIniter.initText(modelUser.getCodeVille());
+        fieldCodePostal = NodeIniter.initText(user.getCodeVille());
 
         lblVille = NodeIniter.initLabel("Ville :");
-        fieldVille = NodeIniter.initText(modelUser.getVille());
+        fieldVille = NodeIniter.initText(user.getVille());
 
         lblEmail = NodeIniter.initLabel("E-Mail :");
-        fieldEmail = NodeIniter.initText(modelUser.getAdresse());
+        fieldEmail = NodeIniter.initText(user.getAdresse());
 
         btnRetour = NodeIniter.initButton("RETOUR");
 

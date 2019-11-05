@@ -1,19 +1,23 @@
 package Controllers;
 
-import Models.ModelUser;
+import Models.Form;
+import Models.User;
 import Views.ViewHandler;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
 public class ControllerConnexion implements EventHandler<MouseEvent> {
     private ViewHandler launcher;
-    private ModelUser modelUser;
+    private User user;
+    private Form form;
 
-    public ControllerConnexion(ViewHandler launcher, ModelUser modelUser){
+    public ControllerConnexion(ViewHandler launcher, User user){
         this.launcher=launcher;
-        this.modelUser=modelUser;
+        this.user = user;
 
         this.launcher.setEventHandlerConnexion(this);
+
+        form = new Form(this.launcher.getViewConnexion().getListTextFiled(),this.launcher.getViewConnexion().getBtnValider());
     }
 
     @Override
@@ -23,7 +27,7 @@ public class ControllerConnexion implements EventHandler<MouseEvent> {
             String txtLogin = launcher.getViewConnexion().getFieldLogin().getText();
             String txtMdp = launcher.getViewConnexion().getFieldMdp().getText();
 
-            if(modelUser.connection(txtLogin,txtMdp)){
+            if(user.connection(txtLogin,txtMdp)){
                 launcher.launchViewInformation();
             }
         }

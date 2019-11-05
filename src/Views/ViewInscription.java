@@ -1,7 +1,7 @@
 package Views;
 
 import Controllers.ControllerInscription;
-import Models.ModelUser;
+import Models.User;
 import Tools.NodeIniter;
 import Tools.Paths;
 import javafx.scene.Group;
@@ -20,7 +20,7 @@ public class ViewInscription {
     private TextField fieldLogin, fieldNom,fieldPrenom, fieldAdresse,fieldCodePostal, fieldVille, fieldEmail;
     private PasswordField fieldMotDePasse;
     private Hashtable<Integer,TextField> listTextFiled = new Hashtable<Integer,TextField>();
-    private Button btnValider;
+    private Button btnValider, btnExit;
     private VBox vBoxMainContainer;
 
     ViewInscription(Group root){
@@ -37,38 +37,41 @@ public class ViewInscription {
 
         lblLogin = NodeIniter.initLabel("Login :");
         fieldLogin = NodeIniter.initTextField();
-        listTextFiled.put(ModelUser.KEY_LOGIN, fieldLogin);
+        listTextFiled.put(User.KEY_LOGIN, fieldLogin);
 
         lblMotDePasse = NodeIniter.initLabel("Mot de passe :");
         fieldMotDePasse = NodeIniter.initPasswordField();
-        listTextFiled.put(ModelUser.KEY_MDP, fieldMotDePasse);
+        listTextFiled.put(User.KEY_MDP, fieldMotDePasse);
 
         lblNom = NodeIniter.initLabel("Nom :");
         fieldNom = NodeIniter.initTextField();
-        listTextFiled.put(ModelUser.KEY_NOM, fieldNom);
+        listTextFiled.put(User.KEY_NOM, fieldNom);
 
         lblPrenom = NodeIniter.initLabel("Prenom :");
         fieldPrenom = NodeIniter.initTextField();
-        listTextFiled.put(ModelUser.KEY_PRENOM, fieldPrenom);
+        listTextFiled.put(User.KEY_PRENOM, fieldPrenom);
 
         lblAdresse = NodeIniter.initLabel("Adresse :");
         fieldAdresse = NodeIniter.initTextField();
-        listTextFiled.put(ModelUser.KEY_ADRESSE, fieldAdresse);
+        listTextFiled.put(User.KEY_ADRESSE, fieldAdresse);
 
         lblCodePostal = NodeIniter.initLabel("Code Postal :");
         fieldCodePostal = NodeIniter.initTextField();
-        listTextFiled.put(ModelUser.KEY_CODE_VILLE, fieldCodePostal);
+        listTextFiled.put(User.KEY_CODE_VILLE, fieldCodePostal);
 
         lblVille = NodeIniter.initLabel("Ville :");
         fieldVille = NodeIniter.initTextField();
-        listTextFiled.put(ModelUser.KEY_VILLE, fieldVille);
+        listTextFiled.put(User.KEY_VILLE, fieldVille);
 
         lblEmail = NodeIniter.initLabel("E-Mail :");
         fieldEmail = NodeIniter.initTextField();
-        listTextFiled.put(ModelUser.KEY_EMAIL, fieldEmail);
+        listTextFiled.put(User.KEY_EMAIL, fieldEmail);
 
         btnValider = NodeIniter.initButton("Valider");
         btnValider.setDisable(true);
+
+        btnExit = NodeIniter.initButton("Valider");
+
 
         addToVBox();
 
@@ -96,10 +99,15 @@ public class ViewInscription {
 
     void setEvents(ControllerInscription controllerInscription){
         btnValider.setOnMouseClicked(controllerInscription);
+        btnExit.setOnMouseClicked(controllerInscription);
     }
 
     public Button getBtnValider() {
         return btnValider;
+    }
+
+    public Button getBtnExit(){
+        return btnExit;
     }
 
     public Hashtable<Integer,TextField> getListTextField() {

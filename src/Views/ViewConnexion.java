@@ -1,7 +1,7 @@
 package Views;
 
 import Controllers.ControllerConnexion;
-import Models.ModelUser;
+import Models.User;
 import Tools.NodeIniter;
 import Tools.Paths;
 import javafx.scene.Group;
@@ -10,7 +10,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 
 import java.util.Hashtable;
 
@@ -40,9 +39,13 @@ public class ViewConnexion {
 
         lblLogin = NodeIniter.initLabel("Login :");
         fieldLogin = NodeIniter.initTextField();
+        listTextFiled.put(User.KEY_LOGIN, fieldLogin);
+
 
         lblMdp = NodeIniter.initLabel("Mot de passe :");
         fieldMdp = NodeIniter.initPasswordField();
+        listTextFiled.put(User.KEY_LOGIN, fieldMdp);
+
 
         btnValider = NodeIniter.initButton("Connexion");
         btnRetour = NodeIniter.initButton("Retour");
@@ -85,5 +88,9 @@ public class ViewConnexion {
 
     public PasswordField getFieldMdp(){
         return fieldMdp;
+    }
+
+    public Hashtable<Integer, TextField> getListTextFiled() {
+        return listTextFiled;
     }
 }

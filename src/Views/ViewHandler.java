@@ -3,7 +3,7 @@ package Views;
 import Controllers.ControllerConnexion;
 import Controllers.ControllerInformation;
 import Controllers.ControllerInscription;
-import Models.ModelUser;
+import Models.User;
 import Tools.Paths;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -18,7 +18,7 @@ public class ViewHandler extends Application {
     private ViewInscription viewInscription;
     private ViewConnexion viewConnexion;
     private ViewInformation viewInformation;
-    private ModelUser modelUser;
+    private User user;
     private ControllerInscription controllerInscription;
     private ControllerConnexion controllerConnexion;
     private ControllerInformation controllerInformation;
@@ -39,20 +39,20 @@ public class ViewHandler extends Application {
     }
 
     public void launchViewInscription(){
-        modelUser=new ModelUser();
+        user =new User();
         viewInscription=new ViewInscription(root);
-        controllerInscription=new ControllerInscription(this,modelUser);
+        controllerInscription=new ControllerInscription(this, user);
     }
 
     public void launchViewConnexion(){
         viewConnexion=new ViewConnexion(root);
-        controllerConnexion=new ControllerConnexion(this,modelUser);
+        controllerConnexion=new ControllerConnexion(this, user);
 
     }
 
     public void launchViewInformation(){
-        viewInformation=new ViewInformation(root, modelUser);
-        controllerInformation=new ControllerInformation(this,modelUser);
+        viewInformation=new ViewInformation(root, user);
+        controllerInformation=new ControllerInformation(this, user);
 
     }
 
@@ -79,5 +79,9 @@ public class ViewHandler extends Application {
 
     public ViewInformation getViewInformation() {
         return viewInformation;
+    }
+
+    public Stage getPrimaryStage() {
+        return primaryStage;
     }
 }

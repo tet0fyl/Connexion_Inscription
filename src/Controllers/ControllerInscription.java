@@ -1,7 +1,7 @@
 package Controllers;
 
 import Models.Form;
-import Models.ModelUser;
+import Models.User;
 import Views.ViewHandler;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
@@ -9,12 +9,12 @@ import javafx.scene.input.MouseEvent;
 
 public class ControllerInscription implements EventHandler<MouseEvent> {
     private ViewHandler launcher;
-    private ModelUser modelUser;
+    private User user;
     private Form form;
 
-    public ControllerInscription(ViewHandler launcher, ModelUser modelUser){
+    public ControllerInscription(ViewHandler launcher, User user){
         this.launcher=launcher;
-        this.modelUser=modelUser;
+        this.user = user;
 
         this.launcher.setEventHandlerInscription(this);
 
@@ -24,8 +24,12 @@ public class ControllerInscription implements EventHandler<MouseEvent> {
     @Override
     public void handle(MouseEvent mouseEvent) {
         if(mouseEvent.getSource().equals(launcher.getViewInscription().getBtnValider())){
-                modelUser.initUser(launcher.getViewInscription().getListTextField());
+                user.initUser(launcher.getViewInscription().getListTextField());
                 launcher.launchViewConnexion();
+        }
+
+        if(mouseEvent.getSource().equals(launcher.getViewInscription().getBtnExit())){
+            launcher.getPrimaryStage().close();
         }
     }
 

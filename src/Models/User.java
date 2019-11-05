@@ -4,7 +4,7 @@ import javafx.scene.control.TextField;
 
 import java.util.Hashtable;
 
-public class ModelUser {
+public class User {
     private String login,mdp, nom,prenom,adresse,ville,email,codeVille;
 
     public final static int KEY_LOGIN = 42;
@@ -16,7 +16,7 @@ public class ModelUser {
     public final static int KEY_CODE_VILLE = 48;
     public final static int KEY_EMAIL = 49;
 
-    public ModelUser(){
+    public User(){
 
     }
 
