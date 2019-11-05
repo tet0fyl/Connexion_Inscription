@@ -68,7 +68,7 @@ public class ViewInscription {
         listTextFiled.put(ModelUser.KEY_EMAIL, fieldEmail);
 
         btnValider = NodeIniter.initButton("Valider");
-        btnValider.disarm();
+        btnValider.setDisable(true);
 
         addToVBox();
 

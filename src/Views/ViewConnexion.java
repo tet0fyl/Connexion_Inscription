@@ -1,6 +1,7 @@
 package Views;
 
 import Controllers.ControllerConnexion;
+import Models.ModelUser;
 import Tools.NodeIniter;
 import Tools.Paths;
 import javafx.scene.Group;
@@ -11,6 +12,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+import java.util.Hashtable;
+
 
 public class ViewConnexion {
     private Group root;
@@ -20,6 +23,8 @@ public class ViewConnexion {
     private Label lblLogin, lblMdp;
     private VBox vBoxMainContainer;
     private Button btnValider, btnRetour;
+    private Hashtable<Integer,TextField> listTextFiled = new Hashtable<Integer,TextField>();
+
 
     ViewConnexion(Group root){
         this.root=root;

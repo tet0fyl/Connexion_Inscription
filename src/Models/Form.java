@@ -42,7 +42,6 @@ public class Form {
                     }else{
                         btnValidation.setDisable(true);
                     }
-                    System.out.println("Form " + btnValidation);
                 }
             });
         });
