@@ -1,5 +1,6 @@
 package Controllers;
 
+import Models.FormChecker;
 import Models.ModelUser;
 import Views.ViewHandler;
 import javafx.event.EventHandler;
@@ -15,14 +16,18 @@ public class ControllerInscription implements EventHandler<MouseEvent> {
         this.modelUser=modelUser;
 
         this.launcher.setEventHandlerInscription(this);
+
+        FormChecker.addEventOnChangeForAllTextViewToDisableValidationButton(launcher.getViewInscription().getListTextField(),launcher.getViewInscription().getBtnValider());
     }
 
     @Override
     public void handle(MouseEvent mouseEvent) {
-        if(mouseEvent.getSource().equals(launcher.getViewInscription().getBtnValider())){
-            modelUser.initUser(launcher.getViewInscription().getListTextFiled());
-
-            launcher.launchViewConnexion();
+        if(mouseEvent.getSource().equals(launcher.getViewInscription().getBtnValider().isArmed())){
+                modelUser.initUser(launcher.getViewInscription().getListTextField());
+                launcher.launchViewConnexion();
         }
     }
+
+
+
 }

@@ -75,6 +75,7 @@ public class ViewInscription {
 
 
         btnValider = initButton("Valider");
+        btnValider.disarm();
 
         initVBox();
 
@@ -153,7 +154,7 @@ public class ViewInscription {
         return btnValider;
     }
 
-    public Hashtable<Integer,TextField> getListTextFiled() {
+    public Hashtable<Integer,TextField> getListTextField() {
         return listTextFiled;
     }
 }
