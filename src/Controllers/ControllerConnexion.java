@@ -5,16 +5,15 @@ import Views.ViewHandler;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
-
-public class ControllerInscription implements EventHandler<MouseEvent> {
+public class ControllerConnexion implements EventHandler<MouseEvent> {
     private ViewHandler launcher;
     private ModelUser modelUser;
 
-    public ControllerInscription(ViewHandler launcher, ModelUser modelUser){
+    public ControllerConnexion(ViewHandler launcher, ModelUser modelUser){
         this.launcher=launcher;
         this.modelUser=modelUser;
 
-        this.launcher.setEventHandlerInscription(this);
+        this.launcher.setEventHandlerConnexion(this);
     }
 
     @Override

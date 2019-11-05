@@ -31,8 +31,7 @@ public class ModelUser {
         this.codeVille = listOfTextField.get(KEY_CODE_VILLE).getText();
     }
 
-    @Override
-    public String toString() {
-        return login + mdp;
+    public void connection(String login, String mdp){
+
     }
 }

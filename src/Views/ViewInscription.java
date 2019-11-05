@@ -68,8 +68,6 @@ public class ViewInscription {
         listTextFiled.put(ModelUser.KEY_VILLE, fieldVille);
 
 
-
-
         lblEmail = initLabel("E-Mail :");
         fieldEmail = initTextField();
         listTextFiled.put(ModelUser.KEY_EMAIL, fieldEmail);

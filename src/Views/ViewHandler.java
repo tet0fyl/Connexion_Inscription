@@ -1,5 +1,7 @@
 package Views;
 
+import Controllers.ControllerConnexion;
+import Controllers.ControllerInformation;
 import Controllers.ControllerInscription;
 import Models.ModelUser;
 import javafx.application.Application;
@@ -13,6 +15,8 @@ public class ViewHandler extends Application {
     private Group root;
 
     private ViewInscription viewInscription;
+    private ViewConnexion viewConnexion;
+    private ViewInformation viewInformation;
     private ModelUser modelUser;
     private ControllerInscription controllerInscription;
 
@@ -36,8 +40,25 @@ public class ViewHandler extends Application {
         controllerInscription=new ControllerInscription(this,modelUser);
     }
 
+    void launchViewConnexion(){
+        viewInscription=new ViewInscription(root);
+    }
+
+    void launchViewInformation(){
+        viewInformation=new ViewInformation(root);
+    }
+
     public void setEventHandlerInscription(ControllerInscription controllerInscription){
         viewInscription.setEvents(controllerInscription);
+    }
+
+
+    public void setEventHandlerConnexion(ControllerConnexion controllerConnexion){
+        viewConnexion.setEvents(controllerConnexion);
+    }
+
+    public void setEventHandlerInformation(ControllerInformation controllerInformation){
+        viewInformation.setEvents(controllerInformation);
     }
 
     public ViewInscription getViewInscription() {
