@@ -38,4 +38,36 @@ public class ModelUser {
             return false;
         }
     }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getCodeVille() {
+        return codeVille;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public String getMdp() {
+        return mdp;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public String getVille() {
+        return ville;
+    }
 }

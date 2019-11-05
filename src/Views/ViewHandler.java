@@ -49,7 +49,7 @@ public class ViewHandler extends Application {
     }
 
     public void launchViewInformation(){
-        viewInformation=new ViewInformation(root);
+        viewInformation=new ViewInformation(root, modelUser);
         controllerInformation=new ControllerInformation(this,modelUser);
 
     }

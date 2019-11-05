@@ -22,7 +22,7 @@ public class ControllerInscription implements EventHandler<MouseEvent> {
 
     @Override
     public void handle(MouseEvent mouseEvent) {
-        if(mouseEvent.getSource().equals(launcher.getViewInscription().getBtnValider().isArmed())){
+        if(mouseEvent.getSource().equals(launcher.getViewInscription().getBtnValider())){
                 modelUser.initUser(launcher.getViewInscription().getListTextField());
                 launcher.launchViewConnexion();
         }

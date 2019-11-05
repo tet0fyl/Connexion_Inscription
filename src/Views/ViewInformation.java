@@ -1,6 +1,7 @@
 package Views;
 
 import Controllers.ControllerInformation;
+import Models.ModelUser;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
@@ -17,9 +18,11 @@ public class ViewInformation {
     private Label lblLogin, lblNom,lblPrenom,lblAdresse, lblCodePostal,lblVille,lblEmail, fieldLogin, fieldNom,fieldPrenom, fieldAdresse,fieldCodePostal, fieldVille, fieldEmail;;
     private Button btnRetour;
     private VBox vBoxMainContainer;
+    private ModelUser modelUser;
 
-    ViewInformation(Group root){
+    ViewInformation(Group root, ModelUser modelUser){
         this.root=root;
+        this.modelUser=modelUser;
 
         initElementOfTheView();
 
@@ -32,25 +35,25 @@ public class ViewInformation {
         titleInformation = initTitle("Inscription");
 
         lblLogin = initLabel("Login :");
-        fieldLogin = initText();
+        fieldLogin = initText(modelUser.getLogin());
 
         lblNom = initLabel("Nom :");
-        fieldNom = initText();
+        fieldNom = initText(modelUser.getNom());
 
         lblPrenom = initLabel("Prenom :");
-        fieldPrenom = initText();
+        fieldPrenom = initText(modelUser.getPrenom());
 
         lblAdresse = initLabel("Adresse :");
-        fieldAdresse = initText();
+        fieldAdresse = initText(modelUser.getAdresse());
 
         lblCodePostal = initLabel("Code Postal :");
-        fieldCodePostal = initText();
+        fieldCodePostal = initText(modelUser.getCodeVille());
 
         lblVille = initLabel("Ville :");
-        fieldVille = initText();
+        fieldVille = initText(modelUser.getVille());
 
         lblEmail = initLabel("E-Mail :");
-        fieldEmail = initText();
+        fieldEmail = initText(modelUser.getAdresse());
 
         btnRetour = initButton("RETOUR");
 
@@ -76,8 +79,8 @@ public class ViewInformation {
         return l;
     }
 
-    Label initText(){
-        Label l = new Label();
+    Label initText(String txt){
+        Label l = new Label(txt);
         l.setMinWidth(ViewHandler.squareSizeScene/3);
         l.setAlignment(Pos.BOTTOM_LEFT);
         return l;
