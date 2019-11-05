@@ -31,7 +31,11 @@ public class ModelUser {
         this.codeVille = listOfTextField.get(KEY_CODE_VILLE).getText();
     }
 
-    public void connection(String login, String mdp){
-
+    public boolean connection(String login, String mdp){
+        if(this.login.equals(login) && this.mdp.equals(mdp)){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

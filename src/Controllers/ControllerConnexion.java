@@ -18,11 +18,14 @@ public class ControllerConnexion implements EventHandler<MouseEvent> {
 
     @Override
     public void handle(MouseEvent mouseEvent) {
-        if(mouseEvent.getSource().equals(launcher.getViewInscription().getBtnValider())){
-            modelUser.initUser(launcher.getViewInscription().getListTextFiled());
+        if(mouseEvent.getSource().equals(launcher.getViewConnexion().getBtnValider())){
+            String txtLogin = launcher.getViewConnexion().getFieldLogin().getText();
+            String txtMdp = launcher.getViewConnexion().getFieldMdp().getText();
+            if(modelUser.connection(txtLogin,txtMdp)){
+                launcher.launchViewInformation();
+            }else{
 
-            System.out.println(modelUser);
-
+            }
         }
     }
 }

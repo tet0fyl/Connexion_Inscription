@@ -19,6 +19,8 @@ public class ViewHandler extends Application {
     private ViewInformation viewInformation;
     private ModelUser modelUser;
     private ControllerInscription controllerInscription;
+    private ControllerConnexion controllerConnexion;
+    private ControllerInformation controllerInformation;
 
     public static final double squareSizeScene = 700;
 
@@ -34,18 +36,22 @@ public class ViewHandler extends Application {
         primaryStage.show();
     }
 
-    void launchViewInscription(){
+    public void launchViewInscription(){
         modelUser=new ModelUser();
         viewInscription=new ViewInscription(root);
         controllerInscription=new ControllerInscription(this,modelUser);
     }
 
-    void launchViewConnexion(){
-        viewInscription=new ViewInscription(root);
+    public void launchViewConnexion(){
+        viewConnexion=new ViewConnexion(root);
+        controllerConnexion=new ControllerConnexion(this,modelUser);
+
     }
 
-    void launchViewInformation(){
+    public void launchViewInformation(){
         viewInformation=new ViewInformation(root);
+        controllerInformation=new ControllerInformation(this,modelUser);
+
     }
 
     public void setEventHandlerInscription(ControllerInscription controllerInscription){
@@ -63,5 +69,13 @@ public class ViewHandler extends Application {
 
     public ViewInscription getViewInscription() {
         return viewInscription;
+    }
+
+    public ViewConnexion getViewConnexion() {
+        return viewConnexion;
+    }
+
+    public ViewInformation getViewInformation() {
+        return viewInformation;
     }
 }

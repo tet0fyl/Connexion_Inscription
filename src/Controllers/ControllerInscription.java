@@ -22,8 +22,7 @@ public class ControllerInscription implements EventHandler<MouseEvent> {
         if(mouseEvent.getSource().equals(launcher.getViewInscription().getBtnValider())){
             modelUser.initUser(launcher.getViewInscription().getListTextFiled());
 
-            System.out.println(modelUser);
-
+            launcher.launchViewConnexion();
         }
     }
 }
