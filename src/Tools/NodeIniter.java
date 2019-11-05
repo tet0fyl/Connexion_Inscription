@@ -33,6 +33,13 @@ public class NodeIniter {
         return vbox;
     }
 
+    public static Label initErrorLabel(){
+        Label l = new Label();
+        l.getStyleClass().add("label-error");
+        l.setAlignment(Pos.CENTER);
+        return l;
+    }
+
     public static Label initLabel(String txt){
         Label l = new Label(txt);
         l.setMinWidth(ViewHandler.squareSizeScene/3);

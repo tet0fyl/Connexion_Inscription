@@ -52,7 +52,7 @@ public class ViewConnexion {
 
         btnRetour = NodeIniter.initButton(Paths.btnRetour);
 
-        errorMsgArea = NodeIniter.initLabel("");
+        errorMsgArea = NodeIniter.initErrorLabel();
 
         addToVBox();
 
@@ -93,6 +93,10 @@ public class ViewConnexion {
 
     public PasswordField getFieldMdp(){
         return fieldMdp;
+    }
+
+    public void setErrorMsgArea(String txt) {
+        errorMsgArea.setText(txt);
     }
 
     public Hashtable<Integer, TextField> getListTextFiled() {

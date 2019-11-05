@@ -18,6 +18,7 @@ public class ControllerConnexion implements EventHandler<MouseEvent> {
         this.launcher.setEventHandlerConnexion(this);
 
         form = new Form(this.launcher.getViewConnexion().getListTextFiled(),this.launcher.getViewConnexion().getBtnValider());
+
     }
 
     @Override
@@ -29,6 +30,8 @@ public class ControllerConnexion implements EventHandler<MouseEvent> {
 
             if(user.connection(txtLogin,txtMdp)){
                 launcher.launchViewInformation();
+            }else {
+                this.launcher.getViewConnexion().setErrorMsgArea("Mauvais Login ou Mot de Passe !");
             }
         }
         if(mouseEvent.getSource().equals(launcher.getViewConnexion().getBtnRetour())){
