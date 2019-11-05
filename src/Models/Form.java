@@ -8,9 +8,19 @@ import javafx.scene.control.TextField;
 import java.util.Hashtable;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class FormChecker {
+public class Form {
 
-    public static boolean isEmtpyForm(Hashtable<Integer, TextField> listOfTextField){
+    private Hashtable<Integer,TextField> listOfTextField;
+    private Button btnValidation;
+
+    public Form(Hashtable<Integer, TextField> listOfTextField, Button btnValidation) {
+        this.listOfTextField = listOfTextField;
+        this.btnValidation = btnValidation;
+
+        addEventOnChangeForAllTextViewToDisableValidationButton();
+    }
+
+    public boolean isEmtpyForm(){
         AtomicBoolean flag = new AtomicBoolean(true);
 
         listOfTextField.forEach((key,field)->{
@@ -22,19 +32,23 @@ public class FormChecker {
         return flag.get();
     }
 
-    public static void addEventOnChangeForAllTextViewToDisableValidationButton(Hashtable<Integer,TextField> listOfTextField, Button btn){
+    public void addEventOnChangeForAllTextViewToDisableValidationButton(){
         listOfTextField.forEach((key,field)->{
             field.textProperty().addListener(new ChangeListener<String>() {
                 @Override
                 public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                    if(FormChecker.isEmtpyForm(listOfTextField)){
-                        btn.arm();
+                    if(isEmtpyForm()){
+                        btnValidation.setDisable(false);
                     }else{
-                        btn.disarm();
+                        btnValidation.setDisable(true);
                     }
-                    System.out.println("Y a une event");
+                    System.out.println("Form " + btnValidation);
                 }
             });
         });
+    }
+
+    public Button getBtnValidation() {
+        return btnValidation;
     }
 }

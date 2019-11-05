@@ -98,10 +98,6 @@ public class ViewInscription {
         btnValider.setOnMouseClicked(controllerInscription);
     }
 
-    public TextField getFieldMotDePasse() {
-        return fieldMotDePasse;
-    }
-
     public Button getBtnValider() {
         return btnValider;
     }
