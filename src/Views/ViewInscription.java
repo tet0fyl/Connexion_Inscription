@@ -1,27 +1,26 @@
 package Views;
 
 import Controllers.ControllerInscription;
+import Models.ModelUser;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
-import java.lang.reflect.Field;
-import java.nio.file.attribute.PosixFileAttributes;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Hashtable;
 
 public class ViewInscription {
     private Group root;
     private Text titleFormulaire;
     private Label lblLogin, lblMotDePasse, lblNom,lblPrenom,lblAdresse, lblCodePostal,lblVille,lblEmail;
-    private TextField fieldLogin, fieldMotDePasse, fieldNom,fieldPrenom, fieldAdresse,fieldCodePostal, fieldVille, fieldEmail;
-    private ArrayList<TextField> listTextFiled = new ArrayList<TextField>();
+    private TextField fieldLogin, fieldNom,fieldPrenom, fieldAdresse,fieldCodePostal, fieldVille, fieldEmail;
+    private PasswordField fieldMotDePasse;
+    private Hashtable<Integer,TextField> listTextFiled = new Hashtable<Integer,TextField>();
     private Button btnValider;
     private VBox vBoxMainContainer;
 
@@ -29,8 +28,6 @@ public class ViewInscription {
         this.root=root;
 
         initElementOfTheView();
-
-        initVBox();
 
         clearAndInitRoot();
     }
@@ -42,34 +39,46 @@ public class ViewInscription {
 
         lblLogin = initLabel("Login :");
         fieldLogin = initTextField();
+        listTextFiled.put(ModelUser.KEY_LOGIN, fieldLogin);
 
         lblMotDePasse = initLabel("Mot de passe :");
-        fieldMotDePasse = initTextField();
+        fieldMotDePasse = initPasswordField();
+        listTextFiled.put(ModelUser.KEY_MDP, fieldMotDePasse);
 
         lblNom = initLabel("Nom :");
         fieldNom = initTextField();
-
+        listTextFiled.put(ModelUser.KEY_NOM, fieldNom);
 
         lblPrenom = initLabel("Prenom :");
         fieldPrenom = initTextField();
-
+        listTextFiled.put(ModelUser.KEY_PRENOM, fieldPrenom);
 
         lblAdresse = initLabel("Adresse :");
         fieldAdresse = initTextField();
-
+        listTextFiled.put(ModelUser.KEY_ADRESSE, fieldAdresse);
 
         lblCodePostal = initLabel("Code Postal :");
         fieldCodePostal = initTextField();
+        listTextFiled.put(ModelUser.KEY_CODE_VILLE, fieldCodePostal);
+
 
 
         lblVille = initLabel("Ville :");
         fieldVille = initTextField();
+        listTextFiled.put(ModelUser.KEY_VILLE, fieldVille);
+
+
 
 
         lblEmail = initLabel("E-Mail :");
         fieldEmail = initTextField();
+        listTextFiled.put(ModelUser.KEY_EMAIL, fieldEmail);
+
+
 
         btnValider = initButton("Valider");
+
+        initVBox();
 
     }
 
@@ -98,11 +107,17 @@ public class ViewInscription {
         return tf;
     }
 
+    PasswordField initPasswordField(){
+        PasswordField pf = new PasswordField();
+        pf.setMinWidth(ViewHandler.squareSizeScene/3);
+        pf.setAlignment(Pos.BOTTOM_LEFT);
+        return pf;
+    }
+
     HBox initLabelAndField(Label label, TextField field){
         HBox hbox = new HBox();
         hbox.getChildren().add(label);
         hbox.getChildren().add(field);
-        listTextFiled.add(field);
         hbox.setAlignment(Pos.CENTER);
         hbox.setMinWidth(ViewHandler.squareSizeScene);
         return hbox;
@@ -130,9 +145,17 @@ public class ViewInscription {
 
     void setEvents(ControllerInscription controllerInscription){
         btnValider.setOnMouseClicked(controllerInscription);
-
-
-
     }
 
+    public TextField getFieldMotDePasse() {
+        return fieldMotDePasse;
+    }
+
+    public Button getBtnValider() {
+        return btnValider;
+    }
+
+    public Hashtable<Integer,TextField> getListTextFiled() {
+        return listTextFiled;
+    }
 }
