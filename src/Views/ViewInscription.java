@@ -2,13 +2,12 @@ package Views;
 
 import Controllers.ControllerInscription;
 import Models.ModelUser;
-import javafx.geometry.Pos;
+import Tools.NodeIniter;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
@@ -33,107 +32,59 @@ public class ViewInscription {
     }
 
     void initElementOfTheView(){
-        vBoxMainContainer=new VBox();
 
-        titleFormulaire = initTitle("Inscription");
+        titleFormulaire = NodeIniter.initTitle("Inscription");
 
-        lblLogin = initLabel("Login :");
-        fieldLogin = initTextField();
+        lblLogin = NodeIniter.initLabel("Login :");
+        fieldLogin = NodeIniter.initTextField();
         listTextFiled.put(ModelUser.KEY_LOGIN, fieldLogin);
 
-        lblMotDePasse = initLabel("Mot de passe :");
-        fieldMotDePasse = initPasswordField();
+        lblMotDePasse = NodeIniter.initLabel("Mot de passe :");
+        fieldMotDePasse = NodeIniter.initPasswordField();
         listTextFiled.put(ModelUser.KEY_MDP, fieldMotDePasse);
 
-        lblNom = initLabel("Nom :");
-        fieldNom = initTextField();
+        lblNom = NodeIniter.initLabel("Nom :");
+        fieldNom = NodeIniter.initTextField();
         listTextFiled.put(ModelUser.KEY_NOM, fieldNom);
 
-        lblPrenom = initLabel("Prenom :");
-        fieldPrenom = initTextField();
+        lblPrenom = NodeIniter.initLabel("Prenom :");
+        fieldPrenom = NodeIniter.initTextField();
         listTextFiled.put(ModelUser.KEY_PRENOM, fieldPrenom);
 
-        lblAdresse = initLabel("Adresse :");
-        fieldAdresse = initTextField();
+        lblAdresse = NodeIniter.initLabel("Adresse :");
+        fieldAdresse = NodeIniter.initTextField();
         listTextFiled.put(ModelUser.KEY_ADRESSE, fieldAdresse);
 
-        lblCodePostal = initLabel("Code Postal :");
-        fieldCodePostal = initTextField();
+        lblCodePostal = NodeIniter.initLabel("Code Postal :");
+        fieldCodePostal = NodeIniter.initTextField();
         listTextFiled.put(ModelUser.KEY_CODE_VILLE, fieldCodePostal);
 
-
-
-        lblVille = initLabel("Ville :");
-        fieldVille = initTextField();
+        lblVille = NodeIniter.initLabel("Ville :");
+        fieldVille = NodeIniter.initTextField();
         listTextFiled.put(ModelUser.KEY_VILLE, fieldVille);
 
-
-        lblEmail = initLabel("E-Mail :");
-        fieldEmail = initTextField();
+        lblEmail = NodeIniter.initLabel("E-Mail :");
+        fieldEmail = NodeIniter.initTextField();
         listTextFiled.put(ModelUser.KEY_EMAIL, fieldEmail);
 
-
-
-        btnValider = initButton("Valider");
+        btnValider = NodeIniter.initButton("Valider");
         btnValider.disarm();
 
-        initVBox();
+        addToVBox();
 
     }
 
-    Button initButton(String text){
-        Button b = new Button(text);
-        return b;
-    }
-
-    Text initTitle(String text){
-        Text t = new Text(text);
-
-        return t;
-    }
-
-    Label initLabel(String txt){
-        Label l = new Label(txt);
-        l.setMinWidth(ViewHandler.squareSizeScene/3);
-        l.setAlignment(Pos.BOTTOM_RIGHT);
-        return l;
-    }
-
-    TextField initTextField(){
-        TextField tf = new TextField();
-        tf.setMinWidth(ViewHandler.squareSizeScene/3);
-        tf.setAlignment(Pos.BOTTOM_LEFT);
-        return tf;
-    }
-
-    PasswordField initPasswordField(){
-        PasswordField pf = new PasswordField();
-        pf.setMinWidth(ViewHandler.squareSizeScene/3);
-        pf.setAlignment(Pos.BOTTOM_LEFT);
-        return pf;
-    }
-
-    HBox initLabelAndField(Label label, TextField field){
-        HBox hbox = new HBox();
-        hbox.getChildren().add(label);
-        hbox.getChildren().add(field);
-        hbox.setAlignment(Pos.CENTER);
-        hbox.setMinWidth(ViewHandler.squareSizeScene);
-        return hbox;
-    }
-
-    void initVBox(){
-        vBoxMainContainer.setMinWidth(ViewHandler.squareSizeScene);
-        vBoxMainContainer.setAlignment(Pos.CENTER);
+    void addToVBox(){
+        vBoxMainContainer = NodeIniter.initVBox();
         vBoxMainContainer.getChildren().add(titleFormulaire);
-        vBoxMainContainer.getChildren().add(initLabelAndField(lblLogin,fieldLogin));
-        vBoxMainContainer.getChildren().add(initLabelAndField(lblMotDePasse,fieldMotDePasse));
-        vBoxMainContainer.getChildren().add(initLabelAndField(lblNom,fieldNom));
-        vBoxMainContainer.getChildren().add(initLabelAndField(lblPrenom,fieldPrenom));
-        vBoxMainContainer.getChildren().add(initLabelAndField(lblAdresse,fieldAdresse));
-        vBoxMainContainer.getChildren().add(initLabelAndField(lblCodePostal,fieldCodePostal));
-        vBoxMainContainer.getChildren().add(initLabelAndField(lblVille,fieldVille));
-        vBoxMainContainer.getChildren().add(initLabelAndField(lblEmail,fieldEmail));
+        vBoxMainContainer.getChildren().add(NodeIniter.initLabelAndFieldHBox(lblLogin,fieldLogin));
+        vBoxMainContainer.getChildren().add(NodeIniter.initLabelAndFieldHBox(lblMotDePasse,fieldMotDePasse));
+        vBoxMainContainer.getChildren().add(NodeIniter.initLabelAndFieldHBox(lblNom,fieldNom));
+        vBoxMainContainer.getChildren().add(NodeIniter.initLabelAndFieldHBox(lblPrenom,fieldPrenom));
+        vBoxMainContainer.getChildren().add(NodeIniter.initLabelAndFieldHBox(lblAdresse,fieldAdresse));
+        vBoxMainContainer.getChildren().add(NodeIniter.initLabelAndFieldHBox(lblCodePostal,fieldCodePostal));
+        vBoxMainContainer.getChildren().add(NodeIniter.initLabelAndFieldHBox(lblVille,fieldVille));
+        vBoxMainContainer.getChildren().add(NodeIniter.initLabelAndFieldHBox(lblEmail,fieldEmail));
         vBoxMainContainer.getChildren().add(btnValider);
     }
 

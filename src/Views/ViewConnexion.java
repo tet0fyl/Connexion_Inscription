@@ -1,6 +1,7 @@
 package Views;
 
 import Controllers.ControllerConnexion;
+import Tools.NodeIniter;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
@@ -30,69 +31,26 @@ public class ViewConnexion {
     }
 
     void initElementOfTheView(){
-        vBoxMainContainer=new VBox();
 
-        titleConnexion = initTitle("Inscription");
+        titleConnexion = NodeIniter.initTitle("Inscription");
 
-        lblLogin = initLabel("Login :");
-        fieldLogin = initTextField();
+        lblLogin = NodeIniter.initLabel("Login :");
+        fieldLogin = NodeIniter.initTextField();
 
-        lblMdp = initLabel("Mot de passe :");
-        fieldMdp = initPasswordField();
+        lblMdp = NodeIniter.initLabel("Mot de passe :");
+        fieldMdp = NodeIniter.initPasswordField();
 
-        btnValider = initButton("Connexion");
+        btnValider = NodeIniter.initButton("Connexion");
 
-        initVBox();
+        addToVBox();
 
     }
 
-    javafx.scene.control.Button initButton(String text){
-        javafx.scene.control.Button b = new javafx.scene.control.Button(text);
-        return b;
-    }
-
-    Text initTitle(String text){
-        Text t = new Text(text);
-
-        return t;
-    }
-
-    javafx.scene.control.Label initLabel(String txt){
-        javafx.scene.control.Label l = new javafx.scene.control.Label(txt);
-        l.setMinWidth(ViewHandler.squareSizeScene/3);
-        l.setAlignment(Pos.BOTTOM_RIGHT);
-        return l;
-    }
-
-    javafx.scene.control.TextField initTextField(){
-        javafx.scene.control.TextField tf = new javafx.scene.control.TextField();
-        tf.setMinWidth(ViewHandler.squareSizeScene/3);
-        tf.setAlignment(Pos.BOTTOM_LEFT);
-        return tf;
-    }
-
-    PasswordField initPasswordField(){
-        PasswordField pf = new PasswordField();
-        pf.setMinWidth(ViewHandler.squareSizeScene/3);
-        pf.setAlignment(Pos.BOTTOM_LEFT);
-        return pf;
-    }
-
-    HBox initLabelAndField(javafx.scene.control.Label label, javafx.scene.control.TextField field){
-        HBox hbox = new HBox();
-        hbox.getChildren().add(label);
-        hbox.getChildren().add(field);
-        hbox.setAlignment(Pos.CENTER);
-        hbox.setMinWidth(ViewHandler.squareSizeScene);
-        return hbox;
-    }
-
-    void initVBox(){
-        vBoxMainContainer.setMinWidth(ViewHandler.squareSizeScene);
-        vBoxMainContainer.setAlignment(Pos.CENTER);
+    void addToVBox(){
+        vBoxMainContainer = NodeIniter.initVBox();
         vBoxMainContainer.getChildren().add(titleConnexion);
-        vBoxMainContainer.getChildren().add(initLabelAndField(lblLogin,fieldLogin));
-        vBoxMainContainer.getChildren().add(initLabelAndField(lblMdp,fieldMdp));
+        vBoxMainContainer.getChildren().add(NodeIniter.initLabelAndFieldHBox(lblLogin,fieldLogin));
+        vBoxMainContainer.getChildren().add(NodeIniter.initLabelAndFieldHBox(lblMdp,fieldMdp));
         vBoxMainContainer.getChildren().add(btnValider);
     }
 

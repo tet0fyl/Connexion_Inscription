@@ -4,6 +4,7 @@ import Controllers.ControllerConnexion;
 import Controllers.ControllerInformation;
 import Controllers.ControllerInscription;
 import Models.ModelUser;
+import Tools.Paths;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -32,8 +33,10 @@ public class ViewHandler extends Application {
 
         launchViewInscription();
 
+        scene.getStylesheets().add(Paths.urlCss);
         primaryStage.setScene(scene);
         primaryStage.show();
+
     }
 
     public void launchViewInscription(){

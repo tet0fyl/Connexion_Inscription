@@ -2,6 +2,7 @@ package Views;
 
 import Controllers.ControllerInformation;
 import Models.ModelUser;
+import Tools.NodeIniter;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
@@ -30,89 +31,46 @@ public class ViewInformation {
     }
 
     void initElementOfTheView(){
-        vBoxMainContainer=new VBox();
 
-        titleInformation = initTitle("Inscription");
+        titleInformation = NodeIniter.initTitle("Inscription");
 
-        lblLogin = initLabel("Login :");
-        fieldLogin = initText(modelUser.getLogin());
+        lblLogin = NodeIniter.initLabel("Login :");
+        fieldLogin = NodeIniter.initText(modelUser.getLogin());
 
-        lblNom = initLabel("Nom :");
-        fieldNom = initText(modelUser.getNom());
+        lblNom = NodeIniter.initLabel("Nom :");
+        fieldNom = NodeIniter.initText(modelUser.getNom());
 
-        lblPrenom = initLabel("Prenom :");
-        fieldPrenom = initText(modelUser.getPrenom());
+        lblPrenom = NodeIniter.initLabel("Prenom :");
+        fieldPrenom = NodeIniter.initText(modelUser.getPrenom());
 
-        lblAdresse = initLabel("Adresse :");
-        fieldAdresse = initText(modelUser.getAdresse());
+        lblAdresse = NodeIniter.initLabel("Adresse :");
+        fieldAdresse = NodeIniter.initText(modelUser.getAdresse());
 
-        lblCodePostal = initLabel("Code Postal :");
-        fieldCodePostal = initText(modelUser.getCodeVille());
+        lblCodePostal = NodeIniter.initLabel("Code Postal :");
+        fieldCodePostal = NodeIniter.initText(modelUser.getCodeVille());
 
-        lblVille = initLabel("Ville :");
-        fieldVille = initText(modelUser.getVille());
+        lblVille = NodeIniter.initLabel("Ville :");
+        fieldVille = NodeIniter.initText(modelUser.getVille());
 
-        lblEmail = initLabel("E-Mail :");
-        fieldEmail = initText(modelUser.getAdresse());
+        lblEmail = NodeIniter.initLabel("E-Mail :");
+        fieldEmail = NodeIniter.initText(modelUser.getAdresse());
 
-        btnRetour = initButton("RETOUR");
+        btnRetour = NodeIniter.initButton("RETOUR");
 
         initVBox();
 
     }
 
-    Button initButton(String text){
-        Button b = new Button(text);
-        return b;
-    }
-
-    Text initTitle(String text){
-        Text t = new Text(text);
-
-        return t;
-    }
-
-    Label initLabel(String txt){
-        Label l = new Label(txt);
-        l.setMinWidth(ViewHandler.squareSizeScene/3);
-        l.setAlignment(Pos.BOTTOM_RIGHT);
-        return l;
-    }
-
-    Label initText(String txt){
-        Label l = new Label(txt);
-        l.setMinWidth(ViewHandler.squareSizeScene/3);
-        l.setAlignment(Pos.BOTTOM_LEFT);
-        return l;
-    }
-
-    PasswordField initPasswordField(){
-        PasswordField pf = new PasswordField();
-        pf.setMinWidth(ViewHandler.squareSizeScene/3);
-        pf.setAlignment(Pos.BOTTOM_LEFT);
-        return pf;
-    }
-
-    HBox initLabelAndField(Label label, Label field){
-        HBox hbox = new HBox();
-        hbox.getChildren().add(label);
-        hbox.getChildren().add(field);
-        hbox.setAlignment(Pos.CENTER);
-        hbox.setMinWidth(ViewHandler.squareSizeScene);
-        return hbox;
-    }
-
     void initVBox(){
-        vBoxMainContainer.setMinWidth(ViewHandler.squareSizeScene);
-        vBoxMainContainer.setAlignment(Pos.CENTER);
+        vBoxMainContainer = NodeIniter.initVBox();
         vBoxMainContainer.getChildren().add(titleInformation);
-        vBoxMainContainer.getChildren().add(initLabelAndField(lblLogin,fieldLogin));
-        vBoxMainContainer.getChildren().add(initLabelAndField(lblNom,fieldNom));
-        vBoxMainContainer.getChildren().add(initLabelAndField(lblPrenom,fieldPrenom));
-        vBoxMainContainer.getChildren().add(initLabelAndField(lblAdresse,fieldAdresse));
-        vBoxMainContainer.getChildren().add(initLabelAndField(lblCodePostal,fieldCodePostal));
-        vBoxMainContainer.getChildren().add(initLabelAndField(lblVille,fieldVille));
-        vBoxMainContainer.getChildren().add(initLabelAndField(lblEmail,fieldEmail));
+        vBoxMainContainer.getChildren().add(NodeIniter.initLabelAndTextHBox(lblLogin,fieldLogin));
+        vBoxMainContainer.getChildren().add(NodeIniter.initLabelAndTextHBox(lblNom,fieldNom));
+        vBoxMainContainer.getChildren().add(NodeIniter.initLabelAndTextHBox(lblPrenom,fieldPrenom));
+        vBoxMainContainer.getChildren().add(NodeIniter.initLabelAndTextHBox(lblAdresse,fieldAdresse));
+        vBoxMainContainer.getChildren().add(NodeIniter.initLabelAndTextHBox(lblCodePostal,fieldCodePostal));
+        vBoxMainContainer.getChildren().add(NodeIniter.initLabelAndTextHBox(lblVille,fieldVille));
+        vBoxMainContainer.getChildren().add(NodeIniter.initLabelAndTextHBox(lblEmail,fieldEmail));
         vBoxMainContainer.getChildren().add(btnRetour);
     }
 
