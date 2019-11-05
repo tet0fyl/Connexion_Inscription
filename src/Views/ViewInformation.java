@@ -3,19 +3,17 @@ package Views;
 import Controllers.ControllerInformation;
 import Models.ModelUser;
 import Tools.NodeIniter;
-import javafx.geometry.Pos;
+import Tools.Paths;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 
 public class ViewInformation {
     private Group root;
-    private Text titleInformation;
+    private VBox titleInformation;
     private Label lblLogin, lblNom,lblPrenom,lblAdresse, lblCodePostal,lblVille,lblEmail, fieldLogin, fieldNom,fieldPrenom, fieldAdresse,fieldCodePostal, fieldVille, fieldEmail;;
     private Button btnRetour;
     private VBox vBoxMainContainer;
@@ -32,7 +30,7 @@ public class ViewInformation {
 
     void initElementOfTheView(){
 
-        titleInformation = NodeIniter.initTitle("Inscription");
+        titleInformation = NodeIniter.initTitle(Paths.titleInformation);
 
         lblLogin = NodeIniter.initLabel("Login :");
         fieldLogin = NodeIniter.initText(modelUser.getLogin());
@@ -76,6 +74,7 @@ public class ViewInformation {
 
     void clearAndInitRoot(){
         root.getChildren().clear();
+        root.getChildren().add(NodeIniter.initBackground());
         root.getChildren().add(vBoxMainContainer);
     }
 

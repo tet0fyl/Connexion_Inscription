@@ -36,7 +36,6 @@ public class ViewHandler extends Application {
         scene.getStylesheets().add(Paths.urlCss);
         primaryStage.setScene(scene);
         primaryStage.show();
-
     }
 
     public void launchViewInscription(){

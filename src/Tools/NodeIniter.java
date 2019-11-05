@@ -1,6 +1,7 @@
 package Tools;
 
 import Views.ViewHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -8,27 +9,34 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
+import javafx.stage.Screen;
 
 public class NodeIniter {
 
     public static Button initButton(String text){
         Button b = new Button(text);
-        b.getStyleClass().add("btn");
+        b.getStyleClass().add("button");
+        VBox.setMargin(b,new Insets(10,0,0,0));
 
         return b;
     }
 
-    public static Text initTitle(String text){
-        Text t = new Text(text);
-        t.getStyleClass().add("title");
+    public static VBox initTitle(String text){
+        Label t = new Label(text);
+        VBox.setMargin(t,new Insets(100,0,0,0));
+        t.getStyleClass().add("label-header");
+        VBox vbox = new VBox();
+        vbox.setAlignment(Pos.CENTER);
+        vbox.getChildren().add(t);
+        vbox.getStyleClass().add("menu-bar");
 
-        return t;
+        return vbox;
     }
 
     public static Label initLabel(String txt){
         Label l = new Label(txt);
         l.setMinWidth(ViewHandler.squareSizeScene/3);
+        l.getStyleClass().add("label-bright");
         l.setAlignment(Pos.BOTTOM_RIGHT);
         return l;
     }
@@ -36,7 +44,7 @@ public class NodeIniter {
     public static Label initText(String txt){
         Label l = new Label(txt);
         l.setMinWidth(ViewHandler.squareSizeScene/3);
-        l.setAlignment(Pos.BOTTOM_RIGHT);
+        l.setAlignment(Pos.BOTTOM_LEFT);
         return l;
     }
 
@@ -76,11 +84,19 @@ public class NodeIniter {
 
     public static VBox initVBox(){
         VBox vbox = new VBox();
-
         vbox.setMinWidth(ViewHandler.squareSizeScene);
         vbox.setAlignment(Pos.CENTER);
         vbox.setSpacing(10);
         return vbox;
     }
+
+    public static VBox initBackground(){
+        VBox vbox = new VBox();
+        vbox.setMinWidth(Screen.getPrimary().getBounds().getWidth());
+        vbox.setMinHeight(Screen.getPrimary().getBounds().getHeight());
+        vbox.getStyleClass().add("background");
+        return vbox;
+    }
+
 
 }

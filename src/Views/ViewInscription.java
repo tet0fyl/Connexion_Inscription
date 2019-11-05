@@ -3,19 +3,19 @@ package Views;
 import Controllers.ControllerInscription;
 import Models.ModelUser;
 import Tools.NodeIniter;
+import Tools.Paths;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 
 import java.util.Hashtable;
 
 public class ViewInscription {
     private Group root;
-    private Text titleFormulaire;
+    private VBox titleFormulaire;
     private Label lblLogin, lblMotDePasse, lblNom,lblPrenom,lblAdresse, lblCodePostal,lblVille,lblEmail;
     private TextField fieldLogin, fieldNom,fieldPrenom, fieldAdresse,fieldCodePostal, fieldVille, fieldEmail;
     private PasswordField fieldMotDePasse;
@@ -33,7 +33,7 @@ public class ViewInscription {
 
     void initElementOfTheView(){
 
-        titleFormulaire = NodeIniter.initTitle("Inscription");
+        titleFormulaire = NodeIniter.initTitle(Paths.titleInscription);
 
         lblLogin = NodeIniter.initLabel("Login :");
         fieldLogin = NodeIniter.initTextField();
@@ -90,6 +90,7 @@ public class ViewInscription {
 
     void clearAndInitRoot(){
         root.getChildren().clear();
+        root.getChildren().add(NodeIniter.initBackground());
         root.getChildren().add(vBoxMainContainer);
     }
 
